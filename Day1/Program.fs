@@ -91,13 +91,11 @@ let isNotEmpty (str: string) =
 let lines = File.ReadAllLines("data.in") |>
             Seq.filter isNotEmpty
 
-//let part1 =
-//    lines |>
-//    Seq.map findDigits |>
-//    Seq.reduce (fun acc a -> acc + a)
+let part1 =
+    lines |>
+    Seq.map findDigits |>
+    Seq.reduce (fun acc a -> acc + a)
 
-let part1 = 0
- 
 let part2 =
     let leftSide = lines |>
                    Seq.map(fun a -> replaceWordsWithNumbers a findFirstHappeningOfWords)
@@ -113,5 +111,5 @@ let part2 =
     Seq.reduce (fun acc a -> acc + a)
                     
 
-printfn "Part one: %d" part1
-printfn "Part two: %d" part2
+printfn $"Part one: %d{part1}"
+printfn $"Part two: %d{part2}"
